@@ -1,0 +1,3 @@
+# pnpm owns this generated lockfile's YAML layout.
+pnpm-lock.yaml
+dist/

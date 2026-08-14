@@ -1,3 +1,6 @@
+import { getCapabilitySchema, MACHINE_CONTRACT_IDENTIFIER, serializeBounded, DEFAULT_LIMITS } from "./contracts.js";
+import { PACKAGE_NAME, PACKAGE_VERSION } from "./package-metadata.js";
+
 export async function runCli(argv: string[]): Promise<number> {
   const command = argv[0];
 
@@ -11,6 +14,20 @@ export async function runCli(argv: string[]): Promise<number> {
     return 0;
   }
 
+  if (command === "--contract") {
+    console.log(
+      serializeBounded(
+        {
+          identifier: MACHINE_CONTRACT_IDENTIFIER,
+          package: { name: PACKAGE_NAME, version: PACKAGE_VERSION },
+          capabilities: getCapabilitySchema().capabilities,
+        },
+        DEFAULT_LIMITS,
+      ),
+    );
+    return 0;
+  }
+
   console.error(`unknown command: ${command}`);
   printHelp();
   return 1;
@@ -19,16 +36,16 @@ export async function runCli(argv: string[]): Promise<number> {
 function printHelp(): void {
   console.log(
     [
-      "Usage: PACKAGE_NAME <command> [options]",
+      "Usage: gh-makami <command> [options]",
       "",
       "Commands:",
       "  --help       Show this help",
       "  --version    Print the installed version",
+      "  --contract   Print the versioned machine contract and capabilities as JSON",
     ].join("\n"),
   );
 }
 
-function getVersion(): string {
-  // TODO: replace with real package metadata (see docs on version wiring).
-  return "0.0.1";
+export function getVersion(): string {
+  return PACKAGE_VERSION;
 }

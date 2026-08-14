@@ -27,9 +27,10 @@ We aim to acknowledge reports within 5 business days. This is a small,
 independently maintained project without a dedicated security team, so
 response times are best-effort.
 
-<!--
-TODO: if this CLI executes user-supplied commands, reads/writes outside a
-confined workspace root, or handles credentials, document those trust
-boundaries explicitly here — see Mottainai's SECURITY.md for the shape of
-that section. Delete this comment once addressed.
--->
+## Runtime trust boundary
+
+The current CLI only reads its installed package metadata and writes contract
+or help output to stdout/stderr. It does not execute user-supplied commands,
+access the network, read or write repository files, or handle credentials.
+Future provider-specific observation must document any additional trust
+boundary before it is introduced.

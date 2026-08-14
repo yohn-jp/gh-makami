@@ -39,3 +39,31 @@ test("unknown command exits 1", async () => {
     console.error = originalError;
   }
 });
+
+test("--version prints the package version", async () => {
+  const originalLog = console.log;
+  const lines: string[] = [];
+  console.log = (line: string) => lines.push(line);
+  try {
+    const exitCode = await runCli(["--version"]);
+    assert.equal(exitCode, 0);
+    assert.deepEqual(lines, ["0.0.1"]);
+  } finally {
+    console.log = originalLog;
+  }
+});
+
+test("--contract prints the versioned machine contract", async () => {
+  const originalLog = console.log;
+  const lines: string[] = [];
+  console.log = (line: string) => lines.push(line);
+  try {
+    const exitCode = await runCli(["--contract"]);
+    assert.equal(exitCode, 0);
+    const output = JSON.parse(lines.join("")) as { identifier: string; capabilities: unknown[] };
+    assert.equal(output.identifier, "gh-makami/contracts/v0");
+    assert.ok(output.capabilities.length > 0);
+  } finally {
+    console.log = originalLog;
+  }
+});
