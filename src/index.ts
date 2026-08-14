@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-import { runCli } from "./cli.js";
-
-runCli(process.argv.slice(2)).then((exitCode) => {
-  process.exitCode = exitCode;
-});
+export * from "./contracts.js";
+export { PACKAGE_NAME, PACKAGE_VERSION } from "./package-metadata.js";
+export { getVersion, runCli } from "./cli.js";
