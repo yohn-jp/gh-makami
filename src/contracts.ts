@@ -48,6 +48,12 @@ const CAPABILITY_DESCRIPTORS = [
     description: "Identity for a pull-request head generation.",
   },
   {
+    id: "pr-reconciliation",
+    version: 0,
+    stability: "stable",
+    description: "Bounded deterministic current-state snapshots and generation deltas.",
+  },
+  {
     id: "signals",
     version: 0,
     stability: "stable",
