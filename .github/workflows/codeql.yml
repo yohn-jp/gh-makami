@@ -17,7 +17,7 @@ jobs:
       contents: read
       security-events: write
       actions: read
-    uses: yohn-jp/.github/.github/workflows/codeql.yml@34846fa
+    uses: yohn-jp/.github/.github/workflows/codeql.yml@34846fadafb3f719b00ec7da6d78bcbcc4cfdc40
     with:
       languages: "javascript-typescript,actions"
       config-file: .github/codeql/codeql-config.yml

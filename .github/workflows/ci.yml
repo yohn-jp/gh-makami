@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   ci:
-    uses: yohn-jp/.github/.github/workflows/typescript-cli-ci.yml@34846fa
+    uses: yohn-jp/.github/.github/workflows/typescript-cli-ci.yml@34846fadafb3f719b00ec7da6d78bcbcc4cfdc40
     with:
       working-directory: .
       node-version: "22"
