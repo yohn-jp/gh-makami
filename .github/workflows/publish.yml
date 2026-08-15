@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   publish:
-    uses: yohn-jp/.github/.github/workflows/npm-publish.yml@4261a3fa11c084e0be3222219cc7429299399bed
+    uses: yohn-jp/.github/.github/workflows/npm-publish.yml@f9ac0b0ea6f50b815d2f2b6f4c97650d79b9b994
     with:
       working-directory: .
       node-version: "22"
