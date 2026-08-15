@@ -10,4 +10,4 @@ permissions:
 
 jobs:
   governance:
-    uses: yohn-jp/.github/.github/workflows/issue-governance.yml@49a11303f40de2663b61aa9ece0925d8acb381f8
+    uses: yohn-jp/.github/.github/workflows/issue-governance.yml@4fb520dcfc63f386a2e33d6c0a74f251f8dc9bdb
