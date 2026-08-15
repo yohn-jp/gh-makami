@@ -9,4 +9,4 @@ permissions:
 
 jobs:
   governance:
-    uses: yohn-jp/.github/.github/workflows/pr-governance.yml@f9ac0b0ea6f50b815d2f2b6f4c97650d79b9b994
+    uses: yohn-jp/.github/.github/workflows/pr-governance.yml@34846fa
